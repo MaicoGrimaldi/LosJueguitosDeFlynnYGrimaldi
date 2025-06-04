@@ -1,16 +1,25 @@
 <script>
-    import { onDestroy } from 'svelte';
+    import { onMount, onDestroy } from 'svelte';
 
     let time = 0;
     let animationFrame;
 
-    function animate() {
-      time = Date.now() * 0.001; 
-      animationFrame = requestAnimationFrame(animate);
-    }
-    animate();
+    onMount(() => {
+      function animate() {
+        time = Date.now() * 0.001;
+        animationFrame = requestAnimationFrame(animate);
+      }
+      animate();
+      return () => {
+        if (animationFrame) {
+          cancelAnimationFrame(animationFrame);
+        }
+      };
+    });
     onDestroy(() => {
-      cancelAnimationFrame(animationFrame);
+      if (animationFrame) {
+        cancelAnimationFrame(animationFrame);
+      }
     });
   
     // Compact data visualization elements - only essential examples

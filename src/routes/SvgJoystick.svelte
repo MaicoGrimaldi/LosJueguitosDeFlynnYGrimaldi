@@ -149,7 +149,6 @@
 >
   <!-- Controller container -->
   <div class="relative w-40 h-29 mx-auto flex items-center justify-center overflow-visible" style="aspect-ratio: 400/248; min-width:0; min-height:0;">
-    <!-- Controller shadow -->
     <!-- SVG Controller -->
     <div 
       class="relative w-full h-full flex items-center justify-center transition-all duration-300 transform {popularityLevel}"
