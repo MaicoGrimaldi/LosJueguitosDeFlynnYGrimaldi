@@ -24,9 +24,16 @@
     };
     animateParticles();
   });
+
+  function scrollToGrid() {
+    const el = document.getElementById('joystick-grid-section');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
 </script>
 
-<section bind:this={heroSection} class="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900">
+<section bind:this={heroSection} class="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900" style="font-family: 'zrnic rg', sans-serif;">
   <!-- Partículas animadas de fondo -->
   <div class="absolute inset-0">
     {#each particles as particle (particle.id)}
@@ -45,7 +52,7 @@
         <!-- Pantalla -->
         <div class="absolute inset-4 bg-black rounded border-2 border-gray-700 overflow-hidden">
           <div class="w-full h-full bg-gradient-to-br from-green-400 to-blue-500 opacity-80 flex items-center justify-center">
-            <div class="text-black font-bold text-xl md:text-2xl animate-pulse">
+            <div class="text-black font-bold text-xl md:text-2xl animate-pulse" style="font-family: 'zrnic rg', sans-serif;">
               CARGANDO DATOS DEL JUEGO...
             </div>
           </div>
@@ -58,10 +65,10 @@
       </div>
       
       <!-- Elementos flotantes de joystick -->
-      <div class="absolute -left-10 top-10 w-16 h-16 opacity-60" style="animation: float 3s ease-in-out infinite;">
+      <div class="absolute -left-10 top-10 w-30 h-30 opacity-60" style="animation: float 3s ease-in-out infinite;">
         <div class="w-full h-full bg-gradient-to-br from-red-500 to-pink-500 rounded-lg transform rotate-12"></div>
       </div>
-      <div class="absolute -right-10 bottom-10 w-12 h-12 opacity-60" style="animation: float 4s ease-in-out infinite reverse;">
+      <div class="absolute -right-10 bottom-10 w-30 h-30 opacity-60" style="animation: float 4s ease-in-out infinite reverse;">
         <div class="w-full h-full bg-gradient-to-br from-blue-500 to-purple-500 rounded-full"></div>
       </div>
     </div>
@@ -74,34 +81,45 @@
       border-bottom: 4.5rem solid #34d399; /* Tailwind's green-400 */
     "></div>
   </div>
-  <div class="absolute right-20 bottom-10 w-10 h-10 opacity-60 rotate-45" style="animation: float 4s ease-in-out infinite reverse;">
+  <div class="absolute right-10 bottom-0 w-20 h-20 opacity-60 rotate-45" style="animation: float 4s ease-in-out infinite reverse;">
     <div class="relative w-full h-full">
-      <div class="absolute inset-0 bg-gradient-to-br from-yellow-400 to-yellow-600 w-1 h-full mx-auto rounded"></div>
-      <div class="absolute inset-0 bg-gradient-to-br from-yellow-400 to-yellow-600 h-1 w-full my-auto rounded"></div>
+      <div class="absolute inset-0 bg-gradient-to-br from-yellow-400 to-yellow-600 w-3 h-full mx-auto rounded"></div>
+      <div class="absolute inset-0 bg-gradient-to-br from-yellow-400 to-yellow-600 h-3 w-full my-auto rounded"></div>
     </div>
   </div>
 
     
     <!-- Texto principal -->
     <div class="space-y-6">
-      <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight">
-        Universo Gamer
+      <h1 class="text-5xl md:text-7xl lg:text-8xl font-extrabold bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight drop-shadow-lg tracking-wide animate-gradient-move" style="font-family: 'zrnic rg', sans-serif; letter-spacing: 0.05em;">
+        <span class="relative">
+          <span class="absolute -inset-1 blur-lg opacity-30 bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 rounded-lg"></span>
+          <span class="relative z-10">UNIVERSO GAMER</span>
+        </span>
       </h1>
-      <p class="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-        Explora 30 joysticks interactivos, cada uno representando un videojuego único con características dinámicas y visualización de datos en tiempo real
+      <style>
+        @keyframes gradient-move {
+          0% { background-position: 0% 50%; }
+          100% { background-position: 100% 50%; }
+        }
+        .animate-gradient-move {
+          background-size: 200% 200%;
+          animation: gradient-move 3s linear infinite alternate;
+        }
+      </style>
+      <p class="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed" style="font-family: 'zrnic rg', sans-serif;">
+        30 joysticks. 30 juegos. Todo se mueve, brilla y cambia con cada dato. Explorá este universo interactivo.
+
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8">
-        <button onclick={() => {}} class="px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 glow">
+        <button onclick={scrollToGrid} class="px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 glow shadow-lg">
           Comenzar a explorar
-        </button>
-        <button onclick={() => {}} class="px-8 py-4 border-2 border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-gray-900 rounded-lg font-semibold text-lg transition-all duration-300">
-          Saber más
         </button>
       </div>
     </div>
     
     <!-- Indicador de scroll -->
-    <div class="absolute bottom-2 left-40 transform -translate-x-1/2 animate-bounce">
+    <div class="absolute bottom-1 left-60 transform -translate-x-1/2 animate-bounce">
       <div class="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center">
         <div class="w-1 h-3 bg-gray-400 rounded-full mt-2 animate-pulse"></div>
       </div>

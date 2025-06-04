@@ -14,12 +14,12 @@
   :global(body) {
     margin: 0;
     padding: 0;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: 'zrnic rg', sans-serif;
     background: #111827;
     color: #f9fafb;
     overflow-x: hidden;
   }
-
+  
   :global(*) {
     box-sizing: border-box;
   }

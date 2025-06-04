@@ -197,16 +197,17 @@
   
   // Genre color mapping
   const genreColors = {
-    'Acción': 'from-red-500 to-orange-500',
-    'Aventura': 'from-green-500 to-emerald-500',
-    'RPG': 'from-purple-500 to-violet-500',
-    'Estrategia': 'from-blue-500 to-cyan-500',
-    'Deportes': 'from-yellow-500 to-amber-500',
-    'Puzzle': 'from-pink-500 to-rose-500',
-    'Carreras': 'from-indigo-500 to-blue-500',
-    'Lucha': 'from-red-600 to-red-400',
-    'Simulación': 'from-teal-500 to-green-500'
-  };
+    'Acción': '#ef4444',        // rojo
+    'Aventura': '#22c55e',      // verde más brillante, distinto de Simulación
+    'RPG': '#7c3aed',           // violeta más oscuro (para alejarlo de Carreras)
+    'Estrategia': '#06b6d4',    // cian
+    'Deportes': '#f59e0b',      // amarillo
+    'Puzzle': '#ec4899',        // rosa
+    'Carreras': '#3b82f6',      // azul vibrante, más diferenciado del violeta
+    'Lucha': '#dc2626',         // rojo oscuro
+    'Simulación': '#0d9488'     // verde azulado más oscuro, diferente de Aventura
+  }
+
   
   const genreColor = $derived(genreColors[game.genre] || 'from-gray-500 to-gray-400');
   

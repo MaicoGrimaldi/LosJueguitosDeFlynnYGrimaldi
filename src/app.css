@@ -1,1 +1,33 @@
 @import 'tailwindcss';
+
+@font-face {
+  font-family: 'Zrnic';
+  src: url('/zrnic-rg.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  font-family: 'Zrnic', Arial, sans-serif !important;
+}
+
+body {
+  letter-spacing: 0.5px;
+  font-size: 1.05rem;
+  color: #f3f4f6;
+  background: #18181b;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: 1px;
+  color: #fff;
+}
+
+button, .button, .btn {
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.card, .modal, .game-info {
+  font-family: 'Zrnic', Arial, sans-serif;
+}

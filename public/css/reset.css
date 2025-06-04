@@ -1,9 +1,8 @@
-
 body {
 	background-color: white;
 	color: #262626;
 	line-height: 1.4;
-	font-family: Roboto, sans-serif;
+	font-family: 'zrnic rg', sans-serif;
 	font-feature-settings: 'kern' 1, 'onum' 0, 'liga' 0, 'tnum' 1;
 	text-rendering: optimizeLegibility;
 	word-wrap: break-word;
