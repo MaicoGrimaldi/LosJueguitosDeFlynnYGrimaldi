@@ -3,6 +3,7 @@
 
     let time = 0;
     let animationFrame;
+    let sectionRef;
 
     onMount(() => {
       function animate() {
@@ -83,22 +84,22 @@
     
   </script>
 
-  <section bind:this={sectionRef} class="h-screen flex items-center justify-center px-4 bg-gray-900 relative overflow-hidden">
+  <section bind:this={sectionRef} class="min-h-screen flex flex-col items-center justify-center px-2 sm:px-4 bg-gray-900 relative overflow-hidden pt-15 pb-15 md:pt-15">
     <!-- Patrón de fondo sutil -->
     <div class="absolute inset-0 opacity-5">
       <div class="absolute inset-0" style="background-image: radial-gradient(circle at 25% 25%, #8b5cf6 0%, transparent 50%), radial-gradient(circle at 75% 75%, #06b6d4 0%, transparent 50%);"></div>
     </div>
     
-    <div class="max-w-7xl mx-auto relative z-10 w-full">
+    <div class="max-w-7xl w-full mx-auto relative z-10">
       <!-- Encabezado compacto -->
-      <div class="text-center mb-30">
-        <h2 class="text-4xl md:text-5xl font-bold text-gray-700 mt-3">
+      <div class="text-center mb-10 sm:mb-16">
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-700 mt-3 break-words">
           El ADN de cada juego
         </h2>
       </div>
 
       <!-- Primera fila: Plataformas -->
-      <div class="flex flex-row justify-center gap-24 mt-8 mb-25">
+      <div class="flex flex-wrap justify-center gap-8 sm:gap-16 md:gap-20 mt-30 mb-10 sm:mb-20">
         {#each visualElements.find(e => e.title === 'Plataforma').elements as item}
           <div class="text-center">
             <div class="mb-2 h-12 flex items-center justify-center">
@@ -229,8 +230,8 @@
         {/each}
       </div>
       
-      <!-- Segunda fila: Géneros (solo swatches de color, sin joystick) -->
-      <div class="flex flex-row justify-center gap-15 mb-20">
+      <!-- Segunda fila: Géneros -->
+      <div class="flex flex-wrap justify-center gap-6 sm:gap-10 md:gap-13 mb-10 sm:mb-20">
         {#each visualElements.find(e => e.title === 'Género').elements as item}
           <div class="text-center">
             <div class="mb-2 h-12 flex items-center justify-center">
@@ -242,7 +243,7 @@
       </div>
 
       <!-- Última fila: Resto -->
-      <div class="flex flex-row justify-center gap-25 mb-20">
+      <div class="flex flex-wrap justify-center gap-6 sm:gap-12 md:gap-15 mb-10 sm:mb-20">
         
         <!-- Dificultad -->
         <div class="flex flex-col items-center">
